@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -44,23 +46,23 @@
             // dgvUsuarios
             // 
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Location = new System.Drawing.Point(13, 102);
+            this.dgvUsuarios.Location = new System.Drawing.Point(13, 127);
             this.dgvUsuarios.Name = "dgvUsuarios";
-            this.dgvUsuarios.Size = new System.Drawing.Size(299, 150);
+            this.dgvUsuarios.Size = new System.Drawing.Size(299, 199);
             this.dgvUsuarios.TabIndex = 0;
             // 
-            // txtUsuario
+            // txtNombreUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(151, 20);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(161, 20);
-            this.txtUsuario.TabIndex = 12;
+            this.txtNombreUsuario.Location = new System.Drawing.Point(151, 47);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(161, 20);
+            this.txtNombreUsuario.TabIndex = 12;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(10, 20);
+            this.lblUsuario.Location = new System.Drawing.Point(10, 47);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(131, 17);
             this.lblUsuario.TabIndex = 11;
@@ -69,7 +71,7 @@
             // cboCategoria
             // 
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(151, 56);
+            this.cboCategoria.Location = new System.Drawing.Point(151, 83);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(161, 21);
             this.cboCategoria.TabIndex = 14;
@@ -78,7 +80,7 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(38, 56);
+            this.lblCategoria.Location = new System.Drawing.Point(38, 83);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(71, 17);
             this.lblCategoria.TabIndex = 13;
@@ -86,58 +88,80 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtId);
+            this.panel1.Controls.Add(this.lblId);
             this.panel1.Controls.Add(this.btnEliminar);
             this.panel1.Controls.Add(this.btnEditar);
             this.panel1.Controls.Add(this.btnAgregar);
-            this.panel1.Controls.Add(this.txtUsuario);
+            this.panel1.Controls.Add(this.txtNombreUsuario);
             this.panel1.Controls.Add(this.dgvUsuarios);
             this.panel1.Controls.Add(this.cboCategoria);
             this.panel1.Controls.Add(this.lblCategoria);
             this.panel1.Controls.Add(this.lblUsuario);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(338, 352);
+            this.panel1.Size = new System.Drawing.Size(338, 402);
             this.panel1.TabIndex = 15;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(13, 284);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(79, 36);
-            this.btnAgregar.TabIndex = 15;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(118, 284);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(74, 36);
-            this.btnEditar.TabIndex = 16;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(229, 284);
+            this.btnEliminar.Location = new System.Drawing.Point(229, 352);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(83, 36);
             this.btnEliminar.TabIndex = 17;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Location = new System.Drawing.Point(118, 352);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(74, 36);
+            this.btnEditar.TabIndex = 16;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(13, 352);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(79, 36);
+            this.btnAgregar.TabIndex = 15;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(151, 12);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(60, 20);
+            this.txtId.TabIndex = 19;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(66, 15);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(26, 17);
+            this.lblId.TabIndex = 18;
+            this.lblId.Text = "ID:";
             // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(365, 379);
+            this.ClientSize = new System.Drawing.Size(365, 426);
             this.Controls.Add(this.panel1);
             this.Name = "frmUsuarios";
             this.Text = "Usuarios";
@@ -151,7 +175,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvUsuarios;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.Label lblCategoria;
@@ -159,5 +183,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblId;
     }
 }

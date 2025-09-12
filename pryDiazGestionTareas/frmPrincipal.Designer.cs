@@ -44,6 +44,10 @@
             this.btnReabrir = new System.Windows.Forms.Button();
             this.dgvCompletadas = new System.Windows.Forms.DataGridView();
             this.stpEstado = new System.Windows.Forms.StatusStrip();
+            this.txtIdPendientes = new System.Windows.Forms.TextBox();
+            this.lblIdPendientes = new System.Windows.Forms.Label();
+            this.txtIdCompletadas = new System.Windows.Forms.TextBox();
+            this.lblIdCompletadas = new System.Windows.Forms.Label();
             this.mnuInicio.SuspendLayout();
             this.tabTareas.SuspendLayout();
             this.tabPendientes.SuspendLayout();
@@ -75,7 +79,7 @@
             // crearYAsignarToolStripMenuItem
             // 
             this.crearYAsignarToolStripMenuItem.Name = "crearYAsignarToolStripMenuItem";
-            this.crearYAsignarToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.crearYAsignarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearYAsignarToolStripMenuItem.Text = "Salir";
             // 
             // usuariosToolStripMenuItem
@@ -120,6 +124,8 @@
             // 
             // tabPendientes
             // 
+            this.tabPendientes.Controls.Add(this.txtIdPendientes);
+            this.tabPendientes.Controls.Add(this.lblIdPendientes);
             this.tabPendientes.Controls.Add(this.btnCompletar);
             this.tabPendientes.Controls.Add(this.btnAgregar);
             this.tabPendientes.Controls.Add(this.dgvPendientes);
@@ -140,6 +146,7 @@
             this.btnCompletar.TabIndex = 14;
             this.btnCompletar.Text = "Completar tarea";
             this.btnCompletar.UseVisualStyleBackColor = true;
+            this.btnCompletar.Click += new System.EventHandler(this.btnCompletar_Click);
             // 
             // btnAgregar
             // 
@@ -155,13 +162,15 @@
             // dgvPendientes
             // 
             this.dgvPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPendientes.Location = new System.Drawing.Point(18, 15);
+            this.dgvPendientes.Location = new System.Drawing.Point(18, 67);
             this.dgvPendientes.Name = "dgvPendientes";
-            this.dgvPendientes.Size = new System.Drawing.Size(514, 237);
+            this.dgvPendientes.Size = new System.Drawing.Size(514, 185);
             this.dgvPendientes.TabIndex = 0;
             // 
             // tabCompletadas
             // 
+            this.tabCompletadas.Controls.Add(this.txtIdCompletadas);
+            this.tabCompletadas.Controls.Add(this.lblIdCompletadas);
             this.tabCompletadas.Controls.Add(this.btnReabrir);
             this.tabCompletadas.Controls.Add(this.dgvCompletadas);
             this.tabCompletadas.Location = new System.Drawing.Point(4, 22);
@@ -185,9 +194,9 @@
             // dgvCompletadas
             // 
             this.dgvCompletadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCompletadas.Location = new System.Drawing.Point(15, 15);
+            this.dgvCompletadas.Location = new System.Drawing.Point(15, 66);
             this.dgvCompletadas.Name = "dgvCompletadas";
-            this.dgvCompletadas.Size = new System.Drawing.Size(519, 248);
+            this.dgvCompletadas.Size = new System.Drawing.Size(519, 197);
             this.dgvCompletadas.TabIndex = 0;
             // 
             // stpEstado
@@ -197,6 +206,40 @@
             this.stpEstado.Size = new System.Drawing.Size(592, 22);
             this.stpEstado.TabIndex = 2;
             this.stpEstado.Text = "Estado";
+            // 
+            // txtIdPendientes
+            // 
+            this.txtIdPendientes.Location = new System.Drawing.Point(129, 23);
+            this.txtIdPendientes.Name = "txtIdPendientes";
+            this.txtIdPendientes.Size = new System.Drawing.Size(69, 20);
+            this.txtIdPendientes.TabIndex = 16;
+            // 
+            // lblIdPendientes
+            // 
+            this.lblIdPendientes.AutoSize = true;
+            this.lblIdPendientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdPendientes.Location = new System.Drawing.Point(19, 23);
+            this.lblIdPendientes.Name = "lblIdPendientes";
+            this.lblIdPendientes.Size = new System.Drawing.Size(95, 17);
+            this.lblIdPendientes.TabIndex = 15;
+            this.lblIdPendientes.Text = "ID de la tarea:";
+            // 
+            // txtIdCompletadas
+            // 
+            this.txtIdCompletadas.Location = new System.Drawing.Point(127, 27);
+            this.txtIdCompletadas.Name = "txtIdCompletadas";
+            this.txtIdCompletadas.Size = new System.Drawing.Size(69, 20);
+            this.txtIdCompletadas.TabIndex = 18;
+            // 
+            // lblIdCompletadas
+            // 
+            this.lblIdCompletadas.AutoSize = true;
+            this.lblIdCompletadas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdCompletadas.Location = new System.Drawing.Point(17, 27);
+            this.lblIdCompletadas.Name = "lblIdCompletadas";
+            this.lblIdCompletadas.Size = new System.Drawing.Size(95, 17);
+            this.lblIdCompletadas.TabIndex = 17;
+            this.lblIdCompletadas.Text = "ID de la tarea:";
             // 
             // frmPrincipal
             // 
@@ -210,12 +253,15 @@
             this.MainMenuStrip = this.mnuInicio;
             this.Name = "frmPrincipal";
             this.Text = "Inicio";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.mnuInicio.ResumeLayout(false);
             this.mnuInicio.PerformLayout();
             this.tabTareas.ResumeLayout(false);
             this.tabPendientes.ResumeLayout(false);
+            this.tabPendientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendientes)).EndInit();
             this.tabCompletadas.ResumeLayout(false);
+            this.tabCompletadas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompletadas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -240,5 +286,9 @@
         private System.Windows.Forms.Button btnReabrir;
         private System.Windows.Forms.DataGridView dgvCompletadas;
         private System.Windows.Forms.StatusStrip stpEstado;
+        private System.Windows.Forms.TextBox txtIdPendientes;
+        private System.Windows.Forms.Label lblIdPendientes;
+        private System.Windows.Forms.TextBox txtIdCompletadas;
+        private System.Windows.Forms.Label lblIdCompletadas;
     }
 }

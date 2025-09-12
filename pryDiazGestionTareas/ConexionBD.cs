@@ -203,5 +203,143 @@ namespace pryDiazGestionTareas
                 }
             }
         }
+
+
+        public void listarTareasPendientes(DataGridView dgvPendientes)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "SELECT * FROM Tareas WHERE Estado = 'Pendiente'";
+
+                DataTable tablaTareas = new DataTable();
+
+                adaptador = new OleDbDataAdapter(comando);
+                adaptador.Fill(tablaTareas);
+
+                dgvPendientes.DataSource = tablaTareas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void listarTareasCompletadas(DataGridView dgvCompletadas)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "SELECT * FROM Tareas";
+
+                DataTable tablaTareas = new DataTable();
+
+                adaptador = new OleDbDataAdapter(comando);
+                adaptador.Fill(tablaTareas);
+
+                dgvCompletadas.DataSource = tablaTareas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void AgregarTarea(Tareas tareanueva)
+        {
+            using (OleDbConnection conexion = new OleDbConnection(cadena))
+            {
+                string sql = @"INSERT INTO Tareas 
+                      (Titulo, Descripcion, Categoria, Prioridad, Vencimiento, Estado, Usuario) 
+                      VALUES (@titulo, @descrip, @categoria, @prioridad, @vencimiento, 'Pendiente', @idUusuario)";
+                using (OleDbCommand cmd = new OleDbCommand(sql, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@titulo", tareanueva.titulo);
+                    cmd.Parameters.AddWithValue("@descrip", tareanueva.descripcion);
+                    cmd.Parameters.AddWithValue("@categoria", tareanueva.categoria);
+                    cmd.Parameters.AddWithValue("@prioridad", tareanueva.prioridad);
+                    cmd.Parameters.AddWithValue("@vencimiento", tareanueva.fechaVencimiento);
+                    cmd.Parameters.AddWithValue("@idUsuario", tareanueva.usuario);
+
+                    try
+                    {
+                        conexion.Open();
+                        comando.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejar la excepción (por ejemplo, mostrar un mensaje de error al usuario)
+                        MessageBox.Show("Error al agregar la tarea: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        
+
+        public void CompletarTarea(int idTarea)
+        {
+            using (OleDbConnection conexion = new OleDbConnection(cadena))
+            {
+                string sql = "UPDATE Tareas SET Estado = 'Completada' WHERE Id = @id";
+                using (OleDbCommand cmd = new OleDbCommand(sql, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@id", idTarea);
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void ReabrirTarea(int idTarea)
+        {
+            using (OleDbConnection conexion = new OleDbConnection(cadena))
+            {
+                string sql = "UPDATE Tareas SET Estado = 'Reabierta' WHERE Id = @id";
+                using (OleDbCommand cmd = new OleDbCommand(sql, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@id", idTarea);
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public List<string> ObtenerUsuarios()
+        {
+            List<string> usuarios = new List<string>();
+
+            try
+            {
+                using (OleDbConnection conexion = new OleDbConnection(cadena))
+                {
+                    string sql = "SELECT DISTINCT Nombre FROM Usuarios";
+                    using (OleDbCommand comando = new OleDbCommand(sql, conexion))
+                    {
+                        conexion.Open();
+                        OleDbDataReader lector = comando.ExecuteReader();
+
+                        while (lector.Read())
+                        {
+                            usuarios.Add(lector["Nombre"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener los usuarios: " + ex.Message);
+            }
+
+            return usuarios;
+        }
     }
 }

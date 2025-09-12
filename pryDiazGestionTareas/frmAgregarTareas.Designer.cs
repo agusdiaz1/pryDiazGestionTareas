@@ -30,19 +30,19 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.lblCategoria = new System.Windows.Forms.Label();
-            this.lblPrioridad = new System.Windows.Forms.Label();
-            this.lblVencimiento = new System.Windows.Forms.Label();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.cboCategoria = new System.Windows.Forms.ComboBox();
-            this.cboPrioridad = new System.Windows.Forms.ComboBox();
-            this.cboUsuario = new System.Windows.Forms.ComboBox();
-            this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
-            this.txtTitulo = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
+            this.cboUsuario = new System.Windows.Forms.ComboBox();
+            this.cboPrioridad = new System.Windows.Forms.ComboBox();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblVencimiento = new System.Windows.Forms.Label();
+            this.lblPrioridad = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,101 +77,16 @@
             this.panel1.Size = new System.Drawing.Size(349, 393);
             this.panel1.TabIndex = 1;
             // 
-            // lblDescripcion
+            // btnCancelar
             // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(15, 73);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(84, 17);
-            this.lblDescripcion.TabIndex = 1;
-            this.lblDescripcion.Text = "Descripción:";
-            // 
-            // lblCategoria
-            // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(22, 126);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(71, 17);
-            this.lblCategoria.TabIndex = 2;
-            this.lblCategoria.Text = "Categoría:";
-            // 
-            // lblPrioridad
-            // 
-            this.lblPrioridad.AutoSize = true;
-            this.lblPrioridad.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrioridad.Location = new System.Drawing.Point(22, 179);
-            this.lblPrioridad.Name = "lblPrioridad";
-            this.lblPrioridad.Size = new System.Drawing.Size(69, 17);
-            this.lblPrioridad.TabIndex = 3;
-            this.lblPrioridad.Text = "Prioridad:";
-            // 
-            // lblVencimiento
-            // 
-            this.lblVencimiento.AutoSize = true;
-            this.lblVencimiento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVencimiento.Location = new System.Drawing.Point(15, 232);
-            this.lblVencimiento.Name = "lblVencimiento";
-            this.lblVencimiento.Size = new System.Drawing.Size(89, 17);
-            this.lblVencimiento.TabIndex = 4;
-            this.lblVencimiento.Text = "Vencimiento:";
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(15, 285);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(119, 17);
-            this.lblUsuario.TabIndex = 5;
-            this.lblUsuario.Text = "Usuario asignado:";
-            // 
-            // cboCategoria
-            // 
-            this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(141, 126);
-            this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(183, 21);
-            this.cboCategoria.TabIndex = 6;
-            // 
-            // cboPrioridad
-            // 
-            this.cboPrioridad.FormattingEnabled = true;
-            this.cboPrioridad.Location = new System.Drawing.Point(141, 179);
-            this.cboPrioridad.Name = "cboPrioridad";
-            this.cboPrioridad.Size = new System.Drawing.Size(183, 21);
-            this.cboPrioridad.TabIndex = 7;
-            // 
-            // cboUsuario
-            // 
-            this.cboUsuario.FormattingEnabled = true;
-            this.cboUsuario.Location = new System.Drawing.Point(141, 285);
-            this.cboUsuario.Name = "cboUsuario";
-            this.cboUsuario.Size = new System.Drawing.Size(183, 21);
-            this.cboUsuario.TabIndex = 8;
-            // 
-            // dtpVencimiento
-            // 
-            this.dtpVencimiento.Location = new System.Drawing.Point(141, 232);
-            this.dtpVencimiento.Name = "dtpVencimiento";
-            this.dtpVencimiento.Size = new System.Drawing.Size(183, 20);
-            this.dtpVencimiento.TabIndex = 9;
-            // 
-            // txtTitulo
-            // 
-            this.txtTitulo.Location = new System.Drawing.Point(141, 21);
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(183, 20);
-            this.txtTitulo.TabIndex = 10;
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Location = new System.Drawing.Point(141, 61);
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(183, 48);
-            this.txtDescripcion.TabIndex = 11;
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(198, 334);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(126, 36);
+            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnGuardar
             // 
@@ -183,17 +98,103 @@
             this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar tarea";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnCancelar
+            // txtDescripcion
             // 
-            this.btnCancelar.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(198, 334);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(126, 36);
-            this.btnCancelar.TabIndex = 13;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.txtDescripcion.Location = new System.Drawing.Point(141, 61);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(183, 48);
+            this.txtDescripcion.TabIndex = 11;
+            // 
+            // txtTitulo
+            // 
+            this.txtTitulo.Location = new System.Drawing.Point(141, 21);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(183, 20);
+            this.txtTitulo.TabIndex = 10;
+            // 
+            // dtpVencimiento
+            // 
+            this.dtpVencimiento.Location = new System.Drawing.Point(141, 232);
+            this.dtpVencimiento.Name = "dtpVencimiento";
+            this.dtpVencimiento.Size = new System.Drawing.Size(183, 20);
+            this.dtpVencimiento.TabIndex = 9;
+            // 
+            // cboUsuario
+            // 
+            this.cboUsuario.FormattingEnabled = true;
+            this.cboUsuario.Location = new System.Drawing.Point(141, 285);
+            this.cboUsuario.Name = "cboUsuario";
+            this.cboUsuario.Size = new System.Drawing.Size(183, 21);
+            this.cboUsuario.TabIndex = 8;
+            // 
+            // cboPrioridad
+            // 
+            this.cboPrioridad.FormattingEnabled = true;
+            this.cboPrioridad.Location = new System.Drawing.Point(141, 179);
+            this.cboPrioridad.Name = "cboPrioridad";
+            this.cboPrioridad.Size = new System.Drawing.Size(183, 21);
+            this.cboPrioridad.TabIndex = 7;
+            // 
+            // cboCategoria
+            // 
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Location = new System.Drawing.Point(141, 126);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(183, 21);
+            this.cboCategoria.TabIndex = 6;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(15, 285);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(119, 17);
+            this.lblUsuario.TabIndex = 5;
+            this.lblUsuario.Text = "Usuario asignado:";
+            // 
+            // lblVencimiento
+            // 
+            this.lblVencimiento.AutoSize = true;
+            this.lblVencimiento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVencimiento.Location = new System.Drawing.Point(15, 232);
+            this.lblVencimiento.Name = "lblVencimiento";
+            this.lblVencimiento.Size = new System.Drawing.Size(89, 17);
+            this.lblVencimiento.TabIndex = 4;
+            this.lblVencimiento.Text = "Vencimiento:";
+            // 
+            // lblPrioridad
+            // 
+            this.lblPrioridad.AutoSize = true;
+            this.lblPrioridad.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrioridad.Location = new System.Drawing.Point(22, 179);
+            this.lblPrioridad.Name = "lblPrioridad";
+            this.lblPrioridad.Size = new System.Drawing.Size(69, 17);
+            this.lblPrioridad.TabIndex = 3;
+            this.lblPrioridad.Text = "Prioridad:";
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.Location = new System.Drawing.Point(22, 126);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(71, 17);
+            this.lblCategoria.TabIndex = 2;
+            this.lblCategoria.Text = "Categoría:";
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(15, 73);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(84, 17);
+            this.lblDescripcion.TabIndex = 1;
+            this.lblDescripcion.Text = "Descripción:";
             // 
             // frmAgregarTareas
             // 

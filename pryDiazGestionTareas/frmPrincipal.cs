@@ -16,5 +16,23 @@ namespace pryDiazGestionTareas
         {
             InitializeComponent();
         }
+
+        private void verToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarios frm = new frmUsuarios();
+            frm.ShowDialog();
+        }
+
+        private void generarReporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReportes frm = new frmReportes();
+            frm.ShowDialog();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAgregarTareas frm = new frmAgregarTareas();
+            frm.ShowDialog();
+        }
     }
 }

@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.mnuInicio = new System.Windows.Forms.MenuStrip();
-            this.tabTareas = new System.Windows.Forms.TabControl();
-            this.tabPendientes = new System.Windows.Forms.TabPage();
-            this.tabCompletadas = new System.Windows.Forms.TabPage();
             this.tareasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearYAsignarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarReporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvPendientes = new System.Windows.Forms.DataGridView();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.tabTareas = new System.Windows.Forms.TabControl();
+            this.tabPendientes = new System.Windows.Forms.TabPage();
             this.btnCompletar = new System.Windows.Forms.Button();
-            this.dgvCompletadas = new System.Windows.Forms.DataGridView();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.dgvPendientes = new System.Windows.Forms.DataGridView();
+            this.tabCompletadas = new System.Windows.Forms.TabPage();
             this.btnReabrir = new System.Windows.Forms.Button();
+            this.dgvCompletadas = new System.Windows.Forms.DataGridView();
             this.stpEstado = new System.Windows.Forms.StatusStrip();
             this.mnuInicio.SuspendLayout();
             this.tabTareas.SuspendLayout();
             this.tabPendientes.SuspendLayout();
-            this.tabCompletadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendientes)).BeginInit();
+            this.tabCompletadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompletadas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +63,50 @@
             this.mnuInicio.Size = new System.Drawing.Size(592, 24);
             this.mnuInicio.TabIndex = 0;
             this.mnuInicio.Text = "menuStrip1";
+            // 
+            // tareasToolStripMenuItem
+            // 
+            this.tareasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearYAsignarToolStripMenuItem});
+            this.tareasToolStripMenuItem.Name = "tareasToolStripMenuItem";
+            this.tareasToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.tareasToolStripMenuItem.Text = "Archivo";
+            // 
+            // crearYAsignarToolStripMenuItem
+            // 
+            this.crearYAsignarToolStripMenuItem.Name = "crearYAsignarToolStripMenuItem";
+            this.crearYAsignarToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.crearYAsignarToolStripMenuItem.Text = "Salir";
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verToolStripMenuItem});
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // verToolStripMenuItem
+            // 
+            this.verToolStripMenuItem.Name = "verToolStripMenuItem";
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verToolStripMenuItem.Text = "Ver";
+            this.verToolStripMenuItem.Click += new System.EventHandler(this.verToolStripMenuItem_Click);
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generarReporteToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // generarReporteToolStripMenuItem
+            // 
+            this.generarReporteToolStripMenuItem.Name = "generarReporteToolStripMenuItem";
+            this.generarReporteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generarReporteToolStripMenuItem.Text = "Generar reporte";
+            this.generarReporteToolStripMenuItem.Click += new System.EventHandler(this.generarReporteToolStripMenuItem_Click);
             // 
             // tabTareas
             // 
@@ -87,6 +131,35 @@
             this.tabPendientes.Text = "Tareas pendientes";
             this.tabPendientes.UseVisualStyleBackColor = true;
             // 
+            // btnCompletar
+            // 
+            this.btnCompletar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompletar.Location = new System.Drawing.Point(384, 283);
+            this.btnCompletar.Name = "btnCompletar";
+            this.btnCompletar.Size = new System.Drawing.Size(148, 36);
+            this.btnCompletar.TabIndex = 14;
+            this.btnCompletar.Text = "Completar tarea";
+            this.btnCompletar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(18, 283);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(133, 36);
+            this.btnAgregar.TabIndex = 13;
+            this.btnAgregar.Text = "Agregar tareas";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // dgvPendientes
+            // 
+            this.dgvPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPendientes.Location = new System.Drawing.Point(18, 15);
+            this.dgvPendientes.Name = "dgvPendientes";
+            this.dgvPendientes.Size = new System.Drawing.Size(514, 237);
+            this.dgvPendientes.TabIndex = 0;
+            // 
             // tabCompletadas
             // 
             this.tabCompletadas.Controls.Add(this.btnReabrir);
@@ -99,84 +172,6 @@
             this.tabCompletadas.Text = "Tareas completadas";
             this.tabCompletadas.UseVisualStyleBackColor = true;
             // 
-            // tareasToolStripMenuItem
-            // 
-            this.tareasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.crearYAsignarToolStripMenuItem});
-            this.tareasToolStripMenuItem.Name = "tareasToolStripMenuItem";
-            this.tareasToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.tareasToolStripMenuItem.Text = "Archivo";
-            // 
-            // crearYAsignarToolStripMenuItem
-            // 
-            this.crearYAsignarToolStripMenuItem.Name = "crearYAsignarToolStripMenuItem";
-            this.crearYAsignarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.crearYAsignarToolStripMenuItem.Text = "Salir";
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verToolStripMenuItem});
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            // 
-            // verToolStripMenuItem
-            // 
-            this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.verToolStripMenuItem.Text = "Ver";
-            // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generarReporteToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // generarReporteToolStripMenuItem
-            // 
-            this.generarReporteToolStripMenuItem.Name = "generarReporteToolStripMenuItem";
-            this.generarReporteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.generarReporteToolStripMenuItem.Text = "Generar reporte";
-            // 
-            // dgvPendientes
-            // 
-            this.dgvPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPendientes.Location = new System.Drawing.Point(18, 15);
-            this.dgvPendientes.Name = "dgvPendientes";
-            this.dgvPendientes.Size = new System.Drawing.Size(514, 237);
-            this.dgvPendientes.TabIndex = 0;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(18, 283);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(133, 36);
-            this.btnAgregar.TabIndex = 13;
-            this.btnAgregar.Text = "Agregar tareas";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // btnCompletar
-            // 
-            this.btnCompletar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompletar.Location = new System.Drawing.Point(384, 283);
-            this.btnCompletar.Name = "btnCompletar";
-            this.btnCompletar.Size = new System.Drawing.Size(148, 36);
-            this.btnCompletar.TabIndex = 14;
-            this.btnCompletar.Text = "Completar tarea";
-            this.btnCompletar.UseVisualStyleBackColor = true;
-            // 
-            // dgvCompletadas
-            // 
-            this.dgvCompletadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCompletadas.Location = new System.Drawing.Point(15, 15);
-            this.dgvCompletadas.Name = "dgvCompletadas";
-            this.dgvCompletadas.Size = new System.Drawing.Size(519, 248);
-            this.dgvCompletadas.TabIndex = 0;
-            // 
             // btnReabrir
             // 
             this.btnReabrir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -186,6 +181,14 @@
             this.btnReabrir.TabIndex = 13;
             this.btnReabrir.Text = "Reabrir tarea";
             this.btnReabrir.UseVisualStyleBackColor = true;
+            // 
+            // dgvCompletadas
+            // 
+            this.dgvCompletadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompletadas.Location = new System.Drawing.Point(15, 15);
+            this.dgvCompletadas.Name = "dgvCompletadas";
+            this.dgvCompletadas.Size = new System.Drawing.Size(519, 248);
+            this.dgvCompletadas.TabIndex = 0;
             // 
             // stpEstado
             // 
@@ -211,8 +214,8 @@
             this.mnuInicio.PerformLayout();
             this.tabTareas.ResumeLayout(false);
             this.tabPendientes.ResumeLayout(false);
-            this.tabCompletadas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendientes)).EndInit();
+            this.tabCompletadas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompletadas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

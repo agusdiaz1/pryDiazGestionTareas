@@ -34,11 +34,11 @@
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +103,23 @@
             this.panel1.Size = new System.Drawing.Size(338, 402);
             this.panel1.TabIndex = 15;
             // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(151, 12);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(60, 20);
+            this.txtId.TabIndex = 19;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(66, 15);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(26, 17);
+            this.lblId.TabIndex = 18;
+            this.lblId.Text = "ID:";
+            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -139,23 +156,6 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(151, 12);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(60, 20);
-            this.txtId.TabIndex = 19;
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(66, 15);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(26, 17);
-            this.lblId.TabIndex = 18;
-            this.lblId.Text = "ID:";
-            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,6 +165,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmUsuarios";
             this.Text = "Usuarios";
+            this.Load += new System.EventHandler(this.frmUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

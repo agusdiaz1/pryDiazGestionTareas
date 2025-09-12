@@ -95,5 +95,16 @@ namespace pryDiazGestionTareas
                 MessageBox.Show("Error al eliminar el usuario: " + ex.Message);
             }
         }
+
+        private void frmUsuarios_Load(object sender, EventArgs e)
+        {
+            cboCategoria.Items.Clear();
+            List<string> listaCategorias = conexion.ObtenerCategoriasUsuario();
+
+            foreach (var cat in listaCategorias)
+            {
+                cboCategoria.Items.Add(cat);
+            }
+        }
     }
 }

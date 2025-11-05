@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace pryDiazGestionTareas
 {
+    //Agregar y completar tareas funciona
+    //Agrgar modificar y editar Usuarios funciona
+    //Filtrar Tareas y hacer reporte no funciona
     public partial class frmPrincipal : Form
     {
         ConexionBD conexion = new ConexionBD();
@@ -45,31 +48,52 @@ namespace pryDiazGestionTareas
 
         private void btnCompletar_Click(object sender, EventArgs e)
         {
-            int id;
-            if (!int.TryParse(txtIdPendientes.Text, out id))
+            if (dgvPendientes.CurrentRow == null)
             {
-                MessageBox.Show("Por favor, ingrese un ID de Contacto válido.");
+                MessageBox.Show("Seleccione una tarea para completar.");
                 return;
             }
 
-            try
-            {
-                conexion.CompletarTarea(id);
-                LimpiarCampos();
-                conexion.listarTareasPendientes(dgvPendientes);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al eliminar el usuario: " + ex.Message);
-            }
+            int idTarea = Convert.ToInt32(dgvPendientes.CurrentRow.Cells["Id"].Value);
+            conexion.CompletarTarea(idTarea);
+
+            // Refrescar grillas
+            conexion.listarTareasPendientes(dgvPendientes);
+            conexion.listarTareasCompletadas(dgvCompletadas);
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            MessageBox.Show("Agregar y completar tareas funciona. Agregar, modificar y editar Usuarios funciona. Filtrar Tareas y hacer reporte no funciona");
             conexion.listarTareasPendientes(dgvPendientes);
+            conexion.listarTareasCompletadas(dgvCompletadas);
 
         }
 
-        
+        private void btnReabrir_Click(object sender, EventArgs e)
+        {
+            if (dgvCompletadas.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione una tarea para reabrir.");
+                return;
+            }
+
+            int idTarea = Convert.ToInt32(dgvCompletadas.CurrentRow.Cells["Id"].Value);
+
+            conexion.ReabrirTarea(idTarea);
+
+            // Refrescar grillas
+            conexion.listarTareasCompletadas(dgvCompletadas);
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            conexion.listarTareasPendientes(dgvPendientes);
+        }
+
+        private void crearYAsignarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -31,8 +31,8 @@ namespace pryDiazGestionTareas
             try
             {
                 conexion.AgregarUsuarios(nuevoUsuario);
-                LimpiarCampos();
                 conexion.listarUsuarios(dgvUsuarios);
+                LimpiarCampos();
             }
 
             catch (Exception ex)
@@ -66,8 +66,8 @@ namespace pryDiazGestionTareas
             try
             {
                 conexion.ModificarUsuarios(UsuarioModificado);
-                LimpiarCampos();
                 conexion.listarUsuarios(dgvUsuarios);
+                LimpiarCampos();
             }
             catch (Exception ex)
             {
@@ -87,8 +87,8 @@ namespace pryDiazGestionTareas
             try
             {
                 conexion.EliminarUsuario(id);
-                LimpiarCampos();
                 conexion.listarUsuarios(dgvUsuarios);
+                LimpiarCampos();
             }
             catch (Exception ex)
             {

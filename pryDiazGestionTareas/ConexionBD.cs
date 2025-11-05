@@ -209,19 +209,14 @@ namespace pryDiazGestionTareas
         {
             try
             {
-                conexion = new OleDbConnection(cadena);
-                comando = new OleDbCommand();
-
-                comando.Connection = conexion;
-                comando.CommandType = CommandType.Text;
-                comando.CommandText = "SELECT * FROM Tareas WHERE Estado = 'Pendiente'";
-
-                DataTable tablaTareas = new DataTable();
-
-                adaptador = new OleDbDataAdapter(comando);
-                adaptador.Fill(tablaTareas);
-
-                dgvPendientes.DataSource = tablaTareas;
+                using (OleDbConnection conexion = new OleDbConnection(cadena))
+                using (OleDbCommand comando = new OleDbCommand("SELECT * FROM Tareas WHERE Estado = 'Pendiente'", conexion))
+                using (OleDbDataAdapter adaptador = new OleDbDataAdapter(comando))
+                {
+                    DataTable tablaTareas = new DataTable();
+                    adaptador.Fill(tablaTareas);
+                    dgvPendientes.DataSource = tablaTareas;
+                }
             }
             catch (Exception ex)
             {
@@ -233,19 +228,14 @@ namespace pryDiazGestionTareas
         {
             try
             {
-                conexion = new OleDbConnection(cadena);
-                comando = new OleDbCommand();
-
-                comando.Connection = conexion;
-                comando.CommandType = CommandType.Text;
-                comando.CommandText = "SELECT * FROM Tareas";
-
-                DataTable tablaTareas = new DataTable();
-
-                adaptador = new OleDbDataAdapter(comando);
-                adaptador.Fill(tablaTareas);
-
-                dgvCompletadas.DataSource = tablaTareas;
+                using (OleDbConnection conexion = new OleDbConnection(cadena))
+                using (OleDbCommand comando = new OleDbCommand("SELECT * FROM Tareas WHERE Estado = 'Completada'", conexion))
+                using (OleDbDataAdapter adaptador = new OleDbDataAdapter(comando))
+                {
+                    DataTable tablaTareas = new DataTable();
+                    adaptador.Fill(tablaTareas);
+                    dgvCompletadas.DataSource = tablaTareas;
+                }
             }
             catch (Exception ex)
             {
@@ -258,32 +248,33 @@ namespace pryDiazGestionTareas
             using (OleDbConnection conexion = new OleDbConnection(cadena))
             {
                 string sql = @"INSERT INTO Tareas 
-                      (Titulo, Descripcion, Categoria, Prioridad, Vencimiento, Estado, Usuario) 
-                      VALUES (@titulo, @descrip, @categoria, @prioridad, @vencimiento, 'Pendiente', @idUusuario)";
+                       (Titulo, Descripcion, Categoria, Prioridad, Vencimiento, Estado, Usuario) 
+                       VALUES (@titulo, @descripcion, @categoria, @prioridad, @vencimiento, @estado, @usuario)";
+
                 using (OleDbCommand cmd = new OleDbCommand(sql, conexion))
                 {
                     cmd.Parameters.AddWithValue("@titulo", tareanueva.titulo);
-                    cmd.Parameters.AddWithValue("@descrip", tareanueva.descripcion);
+                    cmd.Parameters.AddWithValue("@descripcion", tareanueva.descripcion);
                     cmd.Parameters.AddWithValue("@categoria", tareanueva.categoria);
                     cmd.Parameters.AddWithValue("@prioridad", tareanueva.prioridad);
                     cmd.Parameters.AddWithValue("@vencimiento", tareanueva.fechaVencimiento);
-                    cmd.Parameters.AddWithValue("@idUsuario", tareanueva.usuario);
+                    cmd.Parameters.AddWithValue("@estado", "Pendiente");
+                    cmd.Parameters.AddWithValue("@usuario", tareanueva.usuario);
 
                     try
                     {
                         conexion.Open();
-                        comando.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Tarea agregada correctamente.");
                     }
                     catch (Exception ex)
                     {
-                        // Manejar la excepción (por ejemplo, mostrar un mensaje de error al usuario)
                         MessageBox.Show("Error al agregar la tarea: " + ex.Message);
                     }
                 }
             }
         }
 
-        
 
         public void CompletarTarea(int idTarea)
         {
@@ -303,7 +294,7 @@ namespace pryDiazGestionTareas
         {
             using (OleDbConnection conexion = new OleDbConnection(cadena))
             {
-                string sql = "UPDATE Tareas SET Estado = 'Reabierta' WHERE Id = @id";
+                string sql = "UPDATE Tareas SET Estado = 'Pendiente' WHERE Id = @id";
                 using (OleDbCommand cmd = new OleDbCommand(sql, conexion))
                 {
                     cmd.Parameters.AddWithValue("@id", idTarea);

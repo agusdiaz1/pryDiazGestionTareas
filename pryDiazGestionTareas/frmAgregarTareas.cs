@@ -21,25 +21,32 @@ namespace pryDiazGestionTareas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Tareas tareanueva = new Tareas();
-
-            tareanueva.titulo = txtTitulo.Text;
-            tareanueva.descripcion = txtDescripcion.Text;
-            tareanueva.categoria = cboCategoria.Text;
-            tareanueva.prioridad = cboPrioridad.Text;
-            tareanueva.fechaVencimiento = dtpVencimiento.Value;
-            tareanueva.estado = "Pendiente";
-            tareanueva.usuario = cboUsuario.Text;
-
             try
             {
-                conexion.AgregarTarea(tareanueva);
+                // Validaciones básicas
+                if (string.IsNullOrWhiteSpace(txtTitulo.Text))
+                {
+                    MessageBox.Show("Ingrese el título.");
+                    return;
+                }
+
+                Tareas nueva = new Tareas();
+                nueva.titulo = txtTitulo.Text.Trim();
+                nueva.descripcion = txtDescripcion.Text.Trim();
+                nueva.categoria = cboCategoria.Text;
+                nueva.prioridad = cboPrioridad.Text;
+                nueva.fechaVencimiento = dtpVencimiento.Value;
+                nueva.usuario = cboUsuario.Text;
+                                                               
+
+                conexion.AgregarTarea(nueva);
+                //conexion.listarTareasPendientes(dgvPendientes);
+
                 LimpiarCampos();
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar la tarea: " + ex.Message);
+                MessageBox.Show("Error al guardar la tarea: " + ex.Message);
             }
         }
 
@@ -74,6 +81,11 @@ namespace pryDiazGestionTareas
             cboCategoria.SelectedIndex = -1;
             cboPrioridad.SelectedIndex = -1;
             cboUsuario.SelectedIndex = -1;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

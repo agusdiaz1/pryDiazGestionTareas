@@ -37,17 +37,18 @@
             this.generarReporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabTareas = new System.Windows.Forms.TabControl();
             this.tabPendientes = new System.Windows.Forms.TabPage();
+            this.txtIdPendientes = new System.Windows.Forms.TextBox();
+            this.lblIdPendientes = new System.Windows.Forms.Label();
             this.btnCompletar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvPendientes = new System.Windows.Forms.DataGridView();
             this.tabCompletadas = new System.Windows.Forms.TabPage();
+            this.txtIdCompletadas = new System.Windows.Forms.TextBox();
+            this.lblIdCompletadas = new System.Windows.Forms.Label();
             this.btnReabrir = new System.Windows.Forms.Button();
             this.dgvCompletadas = new System.Windows.Forms.DataGridView();
             this.stpEstado = new System.Windows.Forms.StatusStrip();
-            this.txtIdPendientes = new System.Windows.Forms.TextBox();
-            this.lblIdPendientes = new System.Windows.Forms.Label();
-            this.txtIdCompletadas = new System.Windows.Forms.TextBox();
-            this.lblIdCompletadas = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.mnuInicio.SuspendLayout();
             this.tabTareas.SuspendLayout();
             this.tabPendientes.SuspendLayout();
@@ -81,6 +82,7 @@
             this.crearYAsignarToolStripMenuItem.Name = "crearYAsignarToolStripMenuItem";
             this.crearYAsignarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearYAsignarToolStripMenuItem.Text = "Salir";
+            this.crearYAsignarToolStripMenuItem.Click += new System.EventHandler(this.crearYAsignarToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
@@ -93,7 +95,7 @@
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(90, 22);
             this.verToolStripMenuItem.Text = "Ver";
             this.verToolStripMenuItem.Click += new System.EventHandler(this.verToolStripMenuItem_Click);
             // 
@@ -108,7 +110,7 @@
             // generarReporteToolStripMenuItem
             // 
             this.generarReporteToolStripMenuItem.Name = "generarReporteToolStripMenuItem";
-            this.generarReporteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generarReporteToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.generarReporteToolStripMenuItem.Text = "Generar reporte";
             this.generarReporteToolStripMenuItem.Click += new System.EventHandler(this.generarReporteToolStripMenuItem_Click);
             // 
@@ -124,6 +126,7 @@
             // 
             // tabPendientes
             // 
+            this.tabPendientes.Controls.Add(this.btnActualizar);
             this.tabPendientes.Controls.Add(this.txtIdPendientes);
             this.tabPendientes.Controls.Add(this.lblIdPendientes);
             this.tabPendientes.Controls.Add(this.btnCompletar);
@@ -136,6 +139,23 @@
             this.tabPendientes.TabIndex = 0;
             this.tabPendientes.Text = "Tareas pendientes";
             this.tabPendientes.UseVisualStyleBackColor = true;
+            // 
+            // txtIdPendientes
+            // 
+            this.txtIdPendientes.Location = new System.Drawing.Point(129, 23);
+            this.txtIdPendientes.Name = "txtIdPendientes";
+            this.txtIdPendientes.Size = new System.Drawing.Size(69, 20);
+            this.txtIdPendientes.TabIndex = 16;
+            // 
+            // lblIdPendientes
+            // 
+            this.lblIdPendientes.AutoSize = true;
+            this.lblIdPendientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdPendientes.Location = new System.Drawing.Point(19, 23);
+            this.lblIdPendientes.Name = "lblIdPendientes";
+            this.lblIdPendientes.Size = new System.Drawing.Size(95, 17);
+            this.lblIdPendientes.TabIndex = 15;
+            this.lblIdPendientes.Text = "ID de la tarea:";
             // 
             // btnCompletar
             // 
@@ -181,6 +201,23 @@
             this.tabCompletadas.Text = "Tareas completadas";
             this.tabCompletadas.UseVisualStyleBackColor = true;
             // 
+            // txtIdCompletadas
+            // 
+            this.txtIdCompletadas.Location = new System.Drawing.Point(127, 27);
+            this.txtIdCompletadas.Name = "txtIdCompletadas";
+            this.txtIdCompletadas.Size = new System.Drawing.Size(69, 20);
+            this.txtIdCompletadas.TabIndex = 18;
+            // 
+            // lblIdCompletadas
+            // 
+            this.lblIdCompletadas.AutoSize = true;
+            this.lblIdCompletadas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdCompletadas.Location = new System.Drawing.Point(17, 27);
+            this.lblIdCompletadas.Name = "lblIdCompletadas";
+            this.lblIdCompletadas.Size = new System.Drawing.Size(95, 17);
+            this.lblIdCompletadas.TabIndex = 17;
+            this.lblIdCompletadas.Text = "ID de la tarea:";
+            // 
             // btnReabrir
             // 
             this.btnReabrir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -190,6 +227,7 @@
             this.btnReabrir.TabIndex = 13;
             this.btnReabrir.Text = "Reabrir tarea";
             this.btnReabrir.UseVisualStyleBackColor = true;
+            this.btnReabrir.Click += new System.EventHandler(this.btnReabrir_Click);
             // 
             // dgvCompletadas
             // 
@@ -207,39 +245,16 @@
             this.stpEstado.TabIndex = 2;
             this.stpEstado.Text = "Estado";
             // 
-            // txtIdPendientes
+            // btnActualizar
             // 
-            this.txtIdPendientes.Location = new System.Drawing.Point(129, 23);
-            this.txtIdPendientes.Name = "txtIdPendientes";
-            this.txtIdPendientes.Size = new System.Drawing.Size(69, 20);
-            this.txtIdPendientes.TabIndex = 16;
-            // 
-            // lblIdPendientes
-            // 
-            this.lblIdPendientes.AutoSize = true;
-            this.lblIdPendientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdPendientes.Location = new System.Drawing.Point(19, 23);
-            this.lblIdPendientes.Name = "lblIdPendientes";
-            this.lblIdPendientes.Size = new System.Drawing.Size(95, 17);
-            this.lblIdPendientes.TabIndex = 15;
-            this.lblIdPendientes.Text = "ID de la tarea:";
-            // 
-            // txtIdCompletadas
-            // 
-            this.txtIdCompletadas.Location = new System.Drawing.Point(127, 27);
-            this.txtIdCompletadas.Name = "txtIdCompletadas";
-            this.txtIdCompletadas.Size = new System.Drawing.Size(69, 20);
-            this.txtIdCompletadas.TabIndex = 18;
-            // 
-            // lblIdCompletadas
-            // 
-            this.lblIdCompletadas.AutoSize = true;
-            this.lblIdCompletadas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdCompletadas.Location = new System.Drawing.Point(17, 27);
-            this.lblIdCompletadas.Name = "lblIdCompletadas";
-            this.lblIdCompletadas.Size = new System.Drawing.Size(95, 17);
-            this.lblIdCompletadas.TabIndex = 17;
-            this.lblIdCompletadas.Text = "ID de la tarea:";
+            this.btnActualizar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Location = new System.Drawing.Point(399, 12);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(133, 36);
+            this.btnActualizar.TabIndex = 17;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // frmPrincipal
             // 
@@ -290,5 +305,6 @@
         private System.Windows.Forms.Label lblIdPendientes;
         private System.Windows.Forms.TextBox txtIdCompletadas;
         private System.Windows.Forms.Label lblIdCompletadas;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
